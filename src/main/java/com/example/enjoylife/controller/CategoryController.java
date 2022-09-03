@@ -20,7 +20,7 @@ public class CategoryController {
     }
 
     @GetMapping("/list")
-    public Page<CategoryDTO> list(){
+    public Page<CategoryDTO> list() {
         return categoryService.getList();
     }
 

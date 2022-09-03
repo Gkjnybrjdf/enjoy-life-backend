@@ -1,7 +1,7 @@
 package com.example.enjoylife.controller;
 
-import com.example.enjoylife.dto.todolist.TaskCreateUpdateDTO;
-import com.example.enjoylife.dto.todolist.TaskDTO;
+import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
+import com.example.enjoylife.dto.task.TaskDTO;
 import com.example.enjoylife.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -23,7 +23,7 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TaskDTO> getById(@PathVariable Long  id) {
+    public ResponseEntity<TaskDTO> getById(@PathVariable Long id) {
         return taskService.getById(id);
     }
 
@@ -38,13 +38,26 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public TaskDTO update(@PathVariable Long id,@RequestBody TaskCreateUpdateDTO  taskCreateUpdateDTO) {
+    public TaskDTO update(
+            @PathVariable Long id,
+            @RequestBody TaskCreateUpdateDTO taskCreateUpdateDTO) {
         return taskService.update(id, taskCreateUpdateDTO);
     }
 
     @DeleteMapping({"/{id}"})
     public Long delete(@PathVariable Long id) {
         return taskService.delete(id);
+    }
+
+    @PostMapping("/child/{parentTaskId}")
+    public TaskDTO createChildTask(@PathVariable Long parentTaskId,
+                                   @RequestBody TaskCreateUpdateDTO childTask) {
+        return taskService.saveChild(parentTaskId, childTask);
+    }
+
+    @GetMapping("/child/{parentTaskId}")
+    public List<TaskDTO> getChildTasks(@PathVariable Long parentTaskId) {
+        return taskService.getChildTasks(parentTaskId);
     }
 
 }

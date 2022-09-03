@@ -4,9 +4,11 @@ import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
 import com.example.enjoylife.dto.category.CategoryDTO;
 import com.example.enjoylife.entity.Category;
 import com.example.enjoylife.repo.CategoryRepo;
+import com.example.enjoylife.repo.TaskRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,7 @@ import java.time.OffsetDateTime;
 public class CategoryService {
 
     private final CategoryRepo categoryRepo;
+    private final TaskRepo taskRepo;
 
     public CategoryDTO save(CategoryCreateUpdateDTO categoryCreateUpdateDTO) {
         Category category = Category.builder()
@@ -39,6 +42,9 @@ public class CategoryService {
     }
 
     public Long delete(Long id) {
+        if (!taskRepo.findByCategoriesContains(id).isEmpty())
+            throw new RuntimeException("Невозможно удалить. К данной категории привязаны задачи.");
+
         categoryRepo.deleteById(id);
 
         return id;

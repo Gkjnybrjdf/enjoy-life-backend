@@ -8,10 +8,10 @@ import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "category", schema = "public")
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
 public class Category {
 
