@@ -1,6 +1,6 @@
 package com.example.enjoylife.dto.task;
 
-import com.example.enjoylife.entity.Category;
+import com.example.enjoylife.dto.category.CategoryDTO;
 import com.example.enjoylife.entity.Task;
 import lombok.Builder;
 import lombok.Data;
@@ -28,7 +28,7 @@ public class TaskDTO {
 
     private OffsetDateTime activeModifiedDate;
 
-    private Task task;
+    private Long parentTaskId;
 
-    private List<Category> categories;
+    private List<CategoryDTO> categories;
 }

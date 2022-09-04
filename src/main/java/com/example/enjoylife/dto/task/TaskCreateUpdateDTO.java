@@ -1,6 +1,6 @@
 package com.example.enjoylife.dto.task;
 
-import com.example.enjoylife.entity.Category;
+import com.example.enjoylife.dto.category.CategoryDTO;
 import com.example.enjoylife.entity.Task;
 import lombok.Data;
 
@@ -19,5 +19,5 @@ public class TaskCreateUpdateDTO {
 
     private Boolean active;
 
-    private List<Category> categories;
+    private List<CategoryDTO> categories;
 }

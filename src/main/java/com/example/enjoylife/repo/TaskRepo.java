@@ -11,6 +11,6 @@ public interface TaskRepo extends JpaRepository<Task, Long> {
     @Query("from Task task join task.categories cats where cats.id = :categoryId")
     List<Task> findByCategoriesContains(Long categoryId);
 
-    @Query("from Task task join task.task parentTask where parentTask.id = :parentId")
+    @Query("from Task task join task.parentTask parentTask where parentTask.id = :parentId")
     List<Task> findByParentId(Long parentId);
 }

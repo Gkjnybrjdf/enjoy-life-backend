@@ -51,7 +51,7 @@ public class Task {
     @JoinColumns({
             @JoinColumn(name = "parent_task_id", referencedColumnName = "id")
     })
-    private Task task;
+    private Task parentTask;
 
     @ManyToMany
     @JoinTable(name = "category_task",
