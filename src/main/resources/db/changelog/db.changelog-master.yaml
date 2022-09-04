@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: a.plotnikova
+      comment: Добавление поля parent_task_id в таблицу task
+      changes:
+        - sqlFile:
+            splitStatements: false
+            path: db/changelog/changeset/add-parent_task_id-to-task.sql
+      rollback:
+        - sqlFile:
+            splitStatements: false
+            path: db/changelog/changeset/add-parent_task_id-to-task.sql
+
+
+
+
+
+

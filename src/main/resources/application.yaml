@@ -3,4 +3,6 @@ spring:
     username: postgres
     password: postgres
     url: jdbc:postgresql://localhost:5432/enjoy_life
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
 

@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "to_do_list", schema = "public")
+@Table(name = "task", schema = "public")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -31,9 +31,35 @@ public class Task {
     @Column(name = "description")
     private String description;
 
+    @Enumerated(value = EnumType.STRING)
+    @NotNull
+    @Column(name = "priority")
+    private Priority priority;
+
+    @Column(name = "is_easy")
+    private Boolean easy;
+
+    @NotNull
+    @Column(name = "is_active")
+    private Boolean active;
+
+    @NotNull
+    @Column(name = "active_modified_date")
+    private OffsetDateTime activeModifiedDate;
+
+    @ManyToOne
+    @JoinColumns({
+            @JoinColumn(name = "parent_task_id", referencedColumnName = "id")
+    })
+    private Task parentTask;
+
     @ManyToMany
-    @JoinTable(name = "category_to_do_list",
-        joinColumns =  @JoinColumn(name = "to_do_list_id"),
+    @JoinTable(name = "category_task",
+        joinColumns =  @JoinColumn(name = "task_id"),
         inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
+
+    public enum Priority {
+        LOW, MEDIUM, HIGH;
+    }
 }
