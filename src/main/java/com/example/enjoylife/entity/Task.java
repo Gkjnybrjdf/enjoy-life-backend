@@ -60,6 +60,6 @@ public class Task {
     private List<Category> categories;
 
     public enum Priority {
-        LOW, MEDIUM, HIGH;
+        LOW, MEDIUM, HIGH
     }
 }
