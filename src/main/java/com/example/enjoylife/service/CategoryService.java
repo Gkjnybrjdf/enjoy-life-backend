@@ -7,10 +7,10 @@ import com.example.enjoylife.repo.CategoryRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -36,9 +36,9 @@ public class CategoryService {
                 .map(categoryMapperService::mapToDto);
     }
 
-    public ResponseEntity<CategoryDTO> findById(Long id) {
-        return ResponseEntity.of(categoryRepo.findById(id)
-                .map(categoryMapperService::mapToDto));
+    public Optional<CategoryDTO> findById(Long id) {
+        return categoryRepo.findById(id)
+                .map(categoryMapperService::mapToDto);
     }
 
     public Long delete(Long id) {

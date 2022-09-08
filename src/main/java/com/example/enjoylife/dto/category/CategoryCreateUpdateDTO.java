@@ -1,11 +1,13 @@
 package com.example.enjoylife.dto.category;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class CategoryCreateUpdateDTO {
 
-    String name;
+    private String name;
 
-    String description;
+    private String description;
 }
