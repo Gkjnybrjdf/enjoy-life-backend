@@ -5,4 +5,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/enjoy_life
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
+  jpa:
+    show-sql: true
+#logging:
+#  level:
+#    org.springframework: DEBUG
 

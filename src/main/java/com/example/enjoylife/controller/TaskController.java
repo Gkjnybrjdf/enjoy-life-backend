@@ -2,6 +2,7 @@ package com.example.enjoylife.controller;
 
 import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
 import com.example.enjoylife.dto.task.TaskDTO;
+import com.example.enjoylife.dto.task.TaskFilterDTO;
 import com.example.enjoylife.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -30,6 +31,11 @@ public class TaskController {
     @GetMapping("/list")
     public Page<TaskDTO> list() {
         return taskService.getList();
+    }
+
+    @PostMapping ("/filter")
+    public List<TaskDTO> filter(@RequestBody TaskFilterDTO taskFilterDTO) {
+        return taskService.findByFilter(taskFilterDTO);
     }
 
     @GetMapping("/filter/{id}")
