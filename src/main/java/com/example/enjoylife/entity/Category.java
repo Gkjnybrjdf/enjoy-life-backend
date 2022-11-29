@@ -3,7 +3,7 @@ package com.example.enjoylife.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.time.OffsetDateTime;
 
 @Entity
@@ -23,7 +23,7 @@ public class Category {
     @Column(name = "created_at")
     private OffsetDateTime createdAt;
 
-    @NotNull
+    @NotBlank(message = "Введите название")
     @Column(name = "name")
     private String name;
 

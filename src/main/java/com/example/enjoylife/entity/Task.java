@@ -47,13 +47,16 @@ public class Task {
     @Column(name = "active_modified_date")
     private OffsetDateTime activeModifiedDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
             @JoinColumn(name = "parent_task_id", referencedColumnName = "id")
     })
     private Task parentTask;
 
-    @ManyToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "parentTask")
+    private List<Task> children;
+
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "category_task",
         joinColumns =  @JoinColumn(name = "task_id"),
         inverseJoinColumns = @JoinColumn(name = "category_id"))

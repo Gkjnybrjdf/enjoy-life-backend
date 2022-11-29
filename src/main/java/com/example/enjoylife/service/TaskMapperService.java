@@ -28,11 +28,12 @@ public class TaskMapperService {
                         .ofNullable(task.getParentTask())
                         .map(Task::getId)
                         .orElse(null))
-                .categories(task
-                        .getCategories()
-                        .stream()
-                        .map(categoryMapperService::mapToDto)
-                        .collect(Collectors.toList()))
+                .categories(Optional
+                        .ofNullable(task.getCategories())
+                        .map(categories -> categories.stream()
+                                .map(categoryMapperService::mapToDto)
+                                .collect(Collectors.toList()))
+                        .orElse(null))
                 .build();
     }
 }
