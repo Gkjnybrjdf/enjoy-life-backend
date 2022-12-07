@@ -17,7 +17,6 @@ import java.util.Optional;
 public class CategoryService {
 
     private final CategoryRepo categoryRepo;
-    private final TaskService taskService;
     private final CategoryMapperService categoryMapperService;
 
 
@@ -42,9 +41,6 @@ public class CategoryService {
     }
 
     public Long delete(Long id) {
-        if (!taskService.findByCategoryId(id).isEmpty())
-            throw new RuntimeException("Невозможно удалить. К данной категории привязаны задачи.");
-
         categoryRepo.deleteById(id);
 
         return id;

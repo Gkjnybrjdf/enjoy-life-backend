@@ -1,10 +1,14 @@
 package com.example.enjoylife.service;
 
+import com.example.enjoylife.dto.category.CategoryDTO;
+import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
 import com.example.enjoylife.dto.task.TaskDTO;
+import com.example.enjoylife.dto.task.TaskUploadDTO;
 import com.example.enjoylife.entity.Task;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -35,5 +39,17 @@ public class TaskMapperService {
                                 .collect(Collectors.toList()))
                         .orElse(null))
                 .build();
+    }
+
+    public TaskCreateUpdateDTO uploadToCreateDto(TaskUploadDTO task, List<CategoryDTO> category) {
+        return TaskCreateUpdateDTO.builder()
+                .name(task.getName())
+                .description(task.getDescription())
+                .priority(task.getPriority())
+                .easy(task.getEasy())
+                .active(task.getActive())
+                .categories(category)
+                .build();
+
     }
 }

@@ -1,17 +1,15 @@
 package com.example.enjoylife.dto.task;
 
-import com.example.enjoylife.dto.category.CategoryDTO;
+import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
 import com.example.enjoylife.entity.Task;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
 @AllArgsConstructor
-@Builder
-public class TaskCreateUpdateDTO {
+public class TaskUploadDTO {
 
     private String name;
 
@@ -23,5 +21,7 @@ public class TaskCreateUpdateDTO {
 
     private Boolean active;
 
-    private List<CategoryDTO> categories;
+    private List<CategoryCreateUpdateDTO> categories;
+
+    private List<TaskUploadDTO> children;
 }

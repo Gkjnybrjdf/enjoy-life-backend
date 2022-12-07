@@ -1,8 +1,11 @@
 package com.example.enjoylife.service;
 
+import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
+import com.example.enjoylife.dto.category.CategoryDTO;
 import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
 import com.example.enjoylife.dto.task.TaskDTO;
 import com.example.enjoylife.dto.task.TaskFilterDTO;
+import com.example.enjoylife.dto.task.TaskUploadDTO;
 import com.example.enjoylife.entity.Task;
 import com.example.enjoylife.repo.TaskRepo;
 import liquibase.repackaged.org.apache.commons.lang3.StringUtils;
@@ -27,6 +30,7 @@ public class TaskService {
     private final TaskMapperService taskMapperService;
     private final CategoryMapperService categoryMapperService;
     private final EntityManager entityManager;
+    private final CategoryService categoryService;
 
     public TaskDTO save(TaskCreateUpdateDTO taskCreateUpdateDTO) {
         Task task = Task.builder()
@@ -173,5 +177,33 @@ public class TaskService {
                 .collect(Collectors.toList());
     }
 
+    public List<Long> uploadFromFile(List<TaskUploadDTO> tasks) {
+        return uploadFromFile(tasks, null);
+    }
 
+    private List<Long> uploadFromFile(List<TaskUploadDTO> tasks, Long parentTaskId) {
+        List<Long> tasksId = new ArrayList<>();
+
+        for (TaskUploadDTO taskUploadDto : tasks) {
+            List<CategoryDTO> categoryDto = new ArrayList<>();
+
+            for (CategoryCreateUpdateDTO categoryCreateUpdateDto : taskUploadDto.getCategories()) {
+                categoryDto.add(categoryService.save(categoryCreateUpdateDto));
+            }
+
+            Long taskId = null;
+
+            if (parentTaskId == null) {
+                taskId = save(taskMapperService.uploadToCreateDto(taskUploadDto, categoryDto)).getId();
+            } else {
+                taskId = saveChild(parentTaskId, taskMapperService.uploadToCreateDto(taskUploadDto, categoryDto)).getId();
+            }
+
+            tasksId.add(taskId);
+
+            tasksId.addAll(uploadFromFile(taskUploadDto.getChildren(), taskId));
+        }
+
+        return tasksId;
+    }
 }
