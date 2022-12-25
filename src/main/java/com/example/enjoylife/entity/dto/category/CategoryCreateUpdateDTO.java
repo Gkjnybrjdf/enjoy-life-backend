@@ -1,4 +1,4 @@
-package com.example.enjoylife.dto.category;
+package com.example.enjoylife.entity.dto.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

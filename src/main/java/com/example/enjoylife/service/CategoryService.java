@@ -1,9 +1,10 @@
 package com.example.enjoylife.service;
 
-import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
-import com.example.enjoylife.dto.category.CategoryDTO;
+import com.example.enjoylife.entity.dto.category.CategoryCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.category.CategoryDTO;
 import com.example.enjoylife.entity.Category;
-import com.example.enjoylife.repo.CategoryRepo;
+import com.example.enjoylife.mapper.CategoryMapperService;
+import com.example.enjoylife.repo.jpa.CategoryRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

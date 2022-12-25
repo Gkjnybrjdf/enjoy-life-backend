@@ -1,13 +1,15 @@
 package com.example.enjoylife.service;
 
-import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
-import com.example.enjoylife.dto.category.CategoryDTO;
-import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
-import com.example.enjoylife.dto.task.TaskDTO;
-import com.example.enjoylife.dto.task.TaskFilterDTO;
-import com.example.enjoylife.dto.task.TaskUploadDTO;
+import com.example.enjoylife.entity.dto.category.CategoryCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.category.CategoryDTO;
+import com.example.enjoylife.entity.dto.task.TaskCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.task.TaskDTO;
+import com.example.enjoylife.entity.dto.task.TaskFilterDTO;
+import com.example.enjoylife.entity.dto.task.TaskUploadDTO;
 import com.example.enjoylife.entity.Task;
-import com.example.enjoylife.repo.TaskRepo;
+import com.example.enjoylife.mapper.CategoryMapperService;
+import com.example.enjoylife.mapper.TaskMapperService;
+import com.example.enjoylife.repo.jpa.TaskRepo;
 import liquibase.repackaged.org.apache.commons.lang3.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

@@ -11,6 +11,30 @@ databaseChangeLog:
         - sqlFile:
             splitStatements: false
             path: db/changelog/changeset/add-parent_task_id-to-task.sql
+  - changeSet:
+      id: 2
+      author: a.plotnikova
+      comment: Добавление таблиц user_role, app_role, app_user
+      changes:
+        - sqlFile:
+            splitStatements: false
+            path: db/changelog/changeset/add-user-role-user_role-tables.sql
+      rollback:
+        - sqlFile:
+            splitStatement: false
+            path: db/changelog/rollback/drop-user-role-user_role-tables.sql
+  - changeSet:
+      id: 3
+      author: a.plotnikova
+      comment: Увеличение размера varchar для поля password из таблицы app_user
+      changes:
+        - sqlFile:
+            splitStatement: false
+            path: db/changelog/changeset/change-size-of-varchar-column-password.sql
+      rollback:
+        -sqlFile:
+          splitStatement: false
+          path: db/changelog/rollback/change-size-of-varchar-column-password.sql
 
 
 

@@ -1,7 +1,7 @@
 package com.example.enjoylife;
 
-import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
-import com.example.enjoylife.dto.category.CategoryDTO;
+import com.example.enjoylife.entity.dto.category.CategoryCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.category.CategoryDTO;
 import com.example.enjoylife.service.CategoryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

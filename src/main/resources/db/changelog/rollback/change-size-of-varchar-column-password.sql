@@ -1,0 +1,1 @@
+ALTER TABLE app_user ALTER COLUMN password TYPE varchar(50);

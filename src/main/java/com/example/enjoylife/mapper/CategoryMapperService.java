@@ -1,6 +1,6 @@
-package com.example.enjoylife.service;
+package com.example.enjoylife.mapper;
 
-import com.example.enjoylife.dto.category.CategoryDTO;
+import com.example.enjoylife.entity.dto.category.CategoryDTO;
 import com.example.enjoylife.entity.Category;
 import org.springframework.stereotype.Service;
 

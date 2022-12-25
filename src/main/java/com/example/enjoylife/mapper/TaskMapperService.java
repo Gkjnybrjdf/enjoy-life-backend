@@ -1,9 +1,9 @@
-package com.example.enjoylife.service;
+package com.example.enjoylife.mapper;
 
-import com.example.enjoylife.dto.category.CategoryDTO;
-import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
-import com.example.enjoylife.dto.task.TaskDTO;
-import com.example.enjoylife.dto.task.TaskUploadDTO;
+import com.example.enjoylife.entity.dto.category.CategoryDTO;
+import com.example.enjoylife.entity.dto.task.TaskCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.task.TaskDTO;
+import com.example.enjoylife.entity.dto.task.TaskUploadDTO;
 import com.example.enjoylife.entity.Task;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -50,6 +50,5 @@ public class TaskMapperService {
                 .active(task.getActive())
                 .categories(category)
                 .build();
-
     }
 }

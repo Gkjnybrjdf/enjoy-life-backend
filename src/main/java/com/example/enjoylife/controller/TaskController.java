@@ -1,9 +1,9 @@
 package com.example.enjoylife.controller;
 
-import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
-import com.example.enjoylife.dto.task.TaskDTO;
-import com.example.enjoylife.dto.task.TaskFilterDTO;
-import com.example.enjoylife.dto.task.TaskUploadDTO;
+import com.example.enjoylife.entity.dto.task.TaskCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.task.TaskDTO;
+import com.example.enjoylife.entity.dto.task.TaskFilterDTO;
+import com.example.enjoylife.entity.dto.task.TaskUploadDTO;
 import com.example.enjoylife.service.TaskService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

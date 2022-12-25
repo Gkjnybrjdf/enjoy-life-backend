@@ -1,0 +1,1 @@
+DROP TABLE user_role, app_user, app_role;

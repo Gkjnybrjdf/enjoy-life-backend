@@ -1,10 +1,9 @@
-package com.example.enjoylife.dto.category;
+package com.example.enjoylife.entity.dto.category;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
 import java.time.OffsetDateTime;
 
 @Data

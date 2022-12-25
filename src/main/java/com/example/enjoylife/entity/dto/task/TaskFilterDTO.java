@@ -1,4 +1,4 @@
-package com.example.enjoylife.dto.task;
+package com.example.enjoylife.entity.dto.task;
 
 import com.example.enjoylife.entity.Task;
 import lombok.Builder;

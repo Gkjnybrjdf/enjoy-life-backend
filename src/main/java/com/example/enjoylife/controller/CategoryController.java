@@ -1,7 +1,7 @@
 package com.example.enjoylife.controller;
 
-import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
-import com.example.enjoylife.dto.category.CategoryDTO;
+import com.example.enjoylife.entity.dto.category.CategoryCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.category.CategoryDTO;
 import com.example.enjoylife.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

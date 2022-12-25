@@ -5,9 +5,13 @@ spring:
     url: jdbc:postgresql://localhost:5432/enjoy_life
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
+    tag: 1
   jpa:
     show-sql: true
+  elasticsearch:
+    uris:
+      - localhost:9200
+
 #logging:
 #  level:
 #    org.springframework: DEBUG
-

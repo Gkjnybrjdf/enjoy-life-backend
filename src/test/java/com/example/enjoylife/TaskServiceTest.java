@@ -1,9 +1,9 @@
 package com.example.enjoylife;
 
-import com.example.enjoylife.dto.category.CategoryCreateUpdateDTO;
-import com.example.enjoylife.dto.category.CategoryDTO;
-import com.example.enjoylife.dto.task.TaskCreateUpdateDTO;
-import com.example.enjoylife.dto.task.TaskDTO;
+import com.example.enjoylife.entity.dto.category.CategoryCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.category.CategoryDTO;
+import com.example.enjoylife.entity.dto.task.TaskCreateUpdateDTO;
+import com.example.enjoylife.entity.dto.task.TaskDTO;
 import com.example.enjoylife.entity.Task;
 import com.example.enjoylife.service.CategoryService;
 import com.example.enjoylife.service.TaskService;
