@@ -53,7 +53,7 @@ public class UserService implements UserDetailsService {
                 .username(userCreateUpdateDTO.getUsername())
                 .password(passwordEncoder.encode(userCreateUpdateDTO.getPassword()))
                 .createdAt(OffsetDateTime.now())
-                .roles(Set.of(roleRepo.findByName("USER")
+                .roles(Set.of(roleRepo.findByName("ROLE_USER")
                         .orElseThrow(() -> new EnjoyLifeException("Роли USER не существует"))))
                 .build();
 

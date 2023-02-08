@@ -8,7 +8,6 @@ public class EnjoyLifeApplication {
 
     public static void main(String[] args) {
         var ctx = SpringApplication.run(EnjoyLifeApplication.class, args);
-        var i = 0;
     }
 
 }

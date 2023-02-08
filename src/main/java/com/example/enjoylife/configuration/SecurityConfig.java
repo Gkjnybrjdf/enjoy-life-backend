@@ -31,7 +31,7 @@ public class SecurityConfig implements WebMvcConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) {
         return http
                 .authorizeRequests()
-                .antMatchers("/api/users/registration").permitAll()
+                .antMatchers("/api/profile/registration").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
